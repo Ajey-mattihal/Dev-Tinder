@@ -24,6 +24,35 @@ app.post('/signup', async(req,res)=>{
 
 });
 
+app.get("/user", async(req,res)=>{
+    const userEmail = req.body.emailId;
+
+try {
+    const user = await User.find({emailId:userEmail});
+    res.send(user);
+    
+} catch (error) {
+    res.status(400).send("something went wrong")
+    
+}
+
+
+})
+
+
+app.delete("/user", async(req,res)=>{
+    const userId = req.body.userId;
+
+    try {
+
+        const user = await User.findByIdAndDelete(userId);
+        res.send("user deleted successfully")
+        
+    } catch (err) {
+res.status(400).send("something went wrong")
+    }
+});
+
 
 
 app.listen(3333, ()=>{
