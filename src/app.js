@@ -17,7 +17,7 @@ app.post('/signup', async(req,res)=>{
     } catch (error) {
 
         res.status(400).send('something went wrong')
-        
+
     }
   
 
