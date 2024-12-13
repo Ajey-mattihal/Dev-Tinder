@@ -1,14 +1,19 @@
 const mongoose = require("mongoose")
 
+
 const connectDB = async ()=>{
-    await mongoose.connect("mongodb+srv://Dev-Tinder:<db_password>@cluster0.5rmc9.mongodb.net/dev-tinder")
-}
+    await mongoose.connect(
+"mongodb://localhost:27017/dev-tinder"
+);
+
+};
 
 connectDB()
 .then(()=>{
- console.log("connected to mongoDB");
+ console.log("database connectuinestablished....");
 })
 .catch(()=>{
- console.log("something  wrong");
+ console.log("something went wrong");
 })
-    
+
+
